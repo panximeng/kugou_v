@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>Express</title>
+    <link rel="stylesheet" href="stylesheets/public.css"/>
+    <link rel="stylesheet" href="stylesheets/plist.css"/>
+    <link rel="stylesheet" href="stylesheets/swiper.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="javascripts/jquery-3.3.1.js"></script>
+    <script src="javascripts/vue.js"></script>
+    <script src="javascripts/swiper.min.js"></script>
+    <script src="javascripts/com_header.js"></script>
+</head>
+
+<body>
+    <div class="lod">
+        <img style="" src="/images/lod.gif" alt=""/>
+    </div>
+    <header id="app">
+        <v-header></v-header>
+        <v-nav></v-nav>
+    </header>
+    <main>
+        <div>
+            <ul id="music_list" class="music_list" >
+                <li class="rank_list" v-for="lis in dataList">
+                    <a :href="'/plist_list.html?specialid='+lis.specialid">
+                        <img class="img" :src="lis.imgurl|imgUrls" alt=""/>
+                        <p>
+                            <span v-text="lis.specialname"></span>
+                            <span><i class="icon"></i><span v-text="lis.playcount"></span></span>
+                        </p>
+                        <i></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        $.ajax({
+            url:"/ma",
+            data:{urls:"http://m.kugou.com/plist/index&json=true"},
+            success:function(da){
+                $(".lod").hide();
+                $(".music_list").show();
+                //console.log(da.plist.list.info);
+                new Vue({
+                    el:"#music_list",
+                    data:{dataList:da.plist.list.info},
+                    filters:{
+                        imgUrls:function(v){
+                            return v.replace("{size}","400");
+                        }
+                    },
+                })
+            },
+        })
+    </script>
+</body>
+</html>

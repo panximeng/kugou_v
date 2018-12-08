@@ -1,0 +1,104 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    font-size: 1rem;
+    padding-top: 131px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+/*a {
+    color: #00B7FF;
+}*/
+.lod img{
+    height:200px;
+    width:300px;
+    position: absolute;
+    left: 0px;
+    right: 0;
+    top:300px;
+    z-index: 1;
+    margin: auto;
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 120;
+}
+.header_top{
+    width: 100%;
+    /* padding-top: .0357rem; */
+    height: 4.0143rem;
+    line-height: 4.0rem;
+    background: #2ca2f9;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+.logo{
+    width: 8.286rem;
+    height: 2.27857rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: .7143rem;
+    background: url(../images/logo.png) no-repeat;
+    background-size: 100%;
+}
+.download{
+    display: inline-block;
+    width: 6.9143rem;
+    height: 2.2143rem;
+    line-height: 2.2143rem;
+    margin-left: .7143rem;
+    border: 1px solid #fff;
+    border-radius: .3571rem;
+    text-align: center;
+    color: #fff;
+    font-size: .9971rem;
+}
+.search{
+    width: 1.5543rem;
+    height: 1.5543rem;
+    margin-left: 6.5rem;
+    cursor: pointer;
+    display: inline-block;
+    background: url(../images/search.png) 0% 0% / 100% no-repeat;
+}
+.nav{
+    width: 100%;
+    background: #fff;
+    height: 4.2143rem;
+    line-height: 4.2rem;
+    box-shadow: 0 0.1785rem 0.1785rem 0 #f4f4f4;
+}
+.nav ul{
+    width: 100%;
+    padding: 0 .7143rem;
+    display: -webkit-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.active_nav{
+    border-bottom: 3px solid #30a3f7;
+}
+.nav ul li{
+    width: 25%;
+    text-align: center;
+}
+
+.nav ul li a{
+    display: block;
+    color: #333;
+    font-size: 1.3429rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+.nav ul li a img{
+    display: block;
+}

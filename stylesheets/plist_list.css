@@ -1,0 +1,95 @@
+body{
+    padding-top: 65px;
+}
+#main{
+    display: none;
+}
+.bgImg_top{
+    height: 3.5rem;
+    width: 100%;
+    color: white;
+    padding-left: 15px;
+    line-height: 3.5rem;
+    position: fixed;
+    top:64px;
+    background: -webkit-linear-gradient(top,rgba(0,0,0,.5),rgba(0,0,0,0));
+}
+.bgImg img{
+    display: block;
+    width: 100%;
+    height: 16rem;
+}
+.bgImg_top i{
+    display: inline-block;
+    width: 1rem;
+    height: 1.7rem;
+    vertical-align: middle;
+    background: url("../images/goback_1.png")no-repeat center center;
+    background-size: 100%;
+}
+.bgImg_top span{
+    width: 100%;
+    margin: auto;
+    vertical-align: middle;
+    margin-left: 73px;
+    font-size: 1.1rem;
+}
+.txt{
+    width: 100%;
+    line-height: 1.8;
+    padding: .5357rem 0rem .5357rem .8929rem;
+    box-shadow: 0 0.1785rem 0.1785rem 0 #f4f4f4;
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.txt p{
+    font-size: 1.3rem;
+    color: #585555;
+    width: 22.5rem;
+    display: inline-block;
+    height: 2rem;
+}
+.txt i{
+    position: absolute;
+    width: 1.55rem;
+    height: 1.55rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.4rem;
+    background: url(../images/close_icon.png) no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    margin-left: 0.4rem;
+}
+.list{
+    padding-left: .7143rem;
+}
+.list li{
+    width: 100%;
+    height: 5.0714rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.list li .title{
+    width: 21.5rem;
+    vertical-align: middle;
+    margin-top: 1.5rem;
+    padding-left: .3571rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.3rem;
+    color: #363636;
+}
+.list a>i{
+    margin-top: 1.5rem;
+    display: inline-block;
+    width: 1.27143rem;
+    height: 1.5rem;
+    margin-left: 12.2px;
+    vertical-align: middle;
+    background: url(../images/download_icon_2.png) no-repeat;
+    background-size: 100%;
+}

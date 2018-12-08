@@ -1,0 +1,59 @@
+
+#music_list{
+    display: none;
+}
+.music_list a{
+    border-bottom: 1px solid #e5e5e5;
+    display: block;
+    padding: 0.8rem 0rem 0.8rem 0rem;
+    margin-left: 0.8rem;
+
+}
+.music_list img,.music_list p,.music_list i{
+    display: inline-block;
+    vertical-align: middle;
+}
+.music_list  .img{
+    width: 6.57rem;
+    height: 6.57rem;
+    margin-right: 1.3rem;
+}
+.music_list p{
+    width: 14.5rem;
+    height: 6.57rem;
+    padding-top: 2rem;
+    box-sizing: border-box;
+}
+.music_list p>span:first-child{
+    color: #626262;
+    font-size: 1.2rem;
+    display: block;
+    line-height: 30px;
+}
+.music_list p>span:last-child{
+    display: block;
+    color: #9b9b9b;
+    font-size: .7857rem;
+
+}
+.music_list p>span:last-child>i{
+    display: inline-block;
+    width: .77143rem;
+    height: 1rem;
+    background: url(../images/11.png) no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.music_list p>span:last-child>span{
+    vertical-align: middle;
+    font-size: 16px;
+}
+.music_list a>i{
+    display: inline-block;
+    width: .77143rem;
+    height: 1.4rem;
+    margin-left: 12px;
+    background: url(../images/arrow_icon.png) no-repeat;
+    background-size: 100%;
+}

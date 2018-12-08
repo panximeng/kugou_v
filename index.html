@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <title>Express</title>
+    <link rel="stylesheet" href="stylesheets/public.css"/>
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/swiper.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="javascripts/jquery-3.3.1.js"></script>
+    <script src="javascripts/vue.js"></script>
+    <script src="javascripts/swiper.min.js"></script>
+    <script src="javascripts/com_header.js"></script>
+
+</head>
+
+<body>
+    <div class="lod" >
+        <img style="" src="/images/lod.gif" alt=""/>
+    </div>
+    <header id="app">
+        <v-header></v-header>
+        <!--导航-->
+        <v-nav></v-nav>
+    </header>
+    <main id="main">
+        <!--轮播图-->
+        <div class="swiper-container" id="banner">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="b in das">
+                    <a :href="b.extra.tourl">
+                        <img :src="b.imgurl">
+                    </a>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!--新歌列表-->
+        <ul class="music_list" id="music_list">
+            <li v-for="lis in musicList">
+                <span v-text="lis.filename" v-on:click="play(lis.hash)"></span>
+                <i></i>
+            </li>
+        </ul>
+
+    </main>
+    <!--播放器-->
+    <div class="user_play" id="u_play">
+        <img :src="Song.album_img|imgUrls" alt=""/>
+        <div class="txt">
+            <div class="song_name" v-text="Song.songName"></div>
+            <div class="singer_name" v-text="Song.choricSinger"></div>
+        </div>
+        <div class="control">
+            <i class="play"></i>
+            <i class="next"></i>
+            <i class="downloads"></i>
+        </div>
+        <audio :src="Song.url" autoplay></audio>
+    </div>
+<script>
+    //1、获取banner数据
+    $.ajax({
+        url:"/ma",
+        data:{urls:"http://m.kugou.com/?json=true"},
+        success:function(da){
+            $(".lod img").hide();
+            $(".music_list").show();
+            console.log(da)
+            var songData={Song:{singerName:"",songName:"",album_img:"",url:""}};
+            new Vue({
+                el:"#u_play",
+                data:songData,
+                filters:{
+                    imgUrls:function(v){
+                        return v.replace("{size}","400");
+                    },
+                }
+            })
+
+            new Vue({
+                el:"#main",//绑定视图标签
+                data:{
+                    das:da.banner,
+                    musicList:da.data,
+                },
+                methods:{
+                    play:function(hash){
+                        $.ajax({
+                            url:"/ma",
+                            data:{urls:"http://m.kugou.com/app/i/getSongInfo.php?cmd=playInfo&hash="+hash},
+                            success:function(da){
+                                $(".user_play").show();
+                                console.log(da);
+                                songData.Song=da;
+                                $(".play").removeClass("pause");
+                            }
+                        })
+                    }
+                }
+            })
+
+            /*点击play标签让播放器播放*/
+            $(".play").click(function(){
+                if($(this).hasClass("pause")){
+                     $("audio")[0].play();
+                     $(this).removeClass("pause");
+                 }else{
+                    $("audio")[0].pause();
+                    $(this).addClass("pause");
+                 }
+            })
+
+            //swiper 动画
+            var swiper = new Swiper('.swiper-container', {
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+        }
+    })
+</script>
+</body>
+
+</html>

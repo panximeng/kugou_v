@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="stylesheets/public.css"/>
+    <link rel="stylesheet" href="stylesheets/search.css">
+    <link rel="stylesheet" href="stylesheets/swiper.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="javascripts/jquery-3.3.1.js"></script>
+    <script src="javascripts/vue.js"></script>
+    <script src="javascripts/swiper.min.js"></script>
+    <script src="javascripts/com_header.js"></script>
+</head>
+<body>
+<div class="lod" >
+    <img style="" src="/images/lod.gif" alt=""/>
+</div>
+<header id="app">
+    <v-header></v-header>
+</header>
+<main id="main">
+    <div class="title">
+        <a onclick="javaScript:history.go(-1)"><i></i></a>
+        <span>搜索</span>
+    </div>
+    <div class="search_div">
+        <i class="search_icon"></i>
+        <input type="text" placeholder="歌手/歌名/拼音" class="search_keyword" name="keyword">
+        <input type="button" value="搜索" class="search_btn">
+    </div>
+    <div class="search_mian1" id="search_mian1">
+        <div class="hot">最近热门</div>
+        <ul class="search_list">
+            <li v-for="lis in dataList.data.info">
+                <a href="" v-text="lis.keyword"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="search_mian2" id="search_mian2">
+        <div class="search_result" v-text='"共有"+dataList.total+"条结果"'></div>
+        <ul class="search_list">
+            <li v-for="lis in dataList.info">
+                <span v-text="lis.filename"></span>
+                <i></i>
+            </li>
+        </ul>
+    </div>
+</main>
+    <script>
+        $.ajax({
+            url:"/ma",
+            data:{urls:"http://mobilecdn.kugou.com/api/v3/search/hot?format=json&plat=0&count=30"},
+            success:function (da) {
+                console.log(da);
+                $(".search_list").show();
+                $(".lod").hide();
+                new Vue({
+                    el:"#search_mian1",
+                    data:{dataList:da},
+
+                });
+                /*$(".search_btn").click(function () {
+                    console.log("ddd");
+                    $(".search_btn").css({"color":"#959595","background":"#e5e5e5"});
+                    if($(".search_keyword").val()){
+                        $(".search_mian1").hide();
+                        var keyWord = $('.search_keyword').val();
+                        var txtStr =encodeURI(keyWord);
+                        $.ajax({
+                            url:"/ma",
+                            data:{urls:"http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword="+txtStr+"&page=1&pagesize=20&showtype=1"},
+                            success:function (da) {
+                                console.log(da);
+                                $(".search_mian2").show();
+                                $(".lod").hide();
+                                new Vue({
+                                    el:"#search_mian2",
+                                    data:{dataList:da.data},
+                                });
+                            }
+                        })
+                    }else {
+
+                    }
+                })*/
+                $(".search_btn").click(function () {
+                    console.log("ddd");
+                    $(".search_btn").css({"color":"#959595","background":"#e5e5e5"});
+                    if($(".search_keyword").val()){
+                        $(".search_mian1").hide();
+                        var keyWord = $('.search_keyword').val();
+                        var txtStr =encodeURI(keyWord);
+                        $.ajax({
+                            url:"/ma",
+                            data:{urls:"http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword="+txtStr+"&page=1&pagesize=20&showtype=1"},
+                            success:function (da) {
+                                console.log(da);
+                                $(".search_mian2").show();
+                                $(".lod").hide();
+                                new Vue({
+                                    el:"#search_mian2",
+                                    data:{dataList:da.data},
+                                });
+                            }
+                        })
+                    }else {
+
+                    }
+                })
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+body{
+    padding-top:64px;
+}
+main{
+    display: none;
+}
+.bgImg{
+    position: relative;
+    overflow: hidden;
+}
+.bgImg img{
+    display: block;
+    width: 100%;
+    height: 16rem;
+}
+.bgImg .bgImg_top,.bgImg .bgImg_button{
+    height: 3.5rem;
+    width: 100%;
+    color: white;
+}
+.bgImg_top{
+    padding-left: 15px;
+    line-height: 3.5rem;
+    position: fixed;
+    top:64px;
+    background: -webkit-linear-gradient(top,rgba(0,0,0,.5),rgba(0,0,0,0));
+}
+.bgImg_button{
+
+    position: absolute;
+    bottom:0px;
+    background: -webkit-linear-gradient(bottom,rgba(0,0,0,.5),rgba(0,0,0,0));
+}
+.bgImg_top i{
+    display: inline-block;
+    width: 1rem;
+    height: 1.7rem;
+    vertical-align: middle;
+    background: url("../images/goback_1.png")no-repeat center center;
+    background-size: 100%;
+}
+.bgImg_top span{
+    width: 100%;
+    margin: auto;
+    vertical-align: middle;
+    margin-left: 116px;
+    font-size: 1.3rem;
+}
+.bgImg_button p{
+    margin-top: 0.5rem;
+    width: 100%;
+    padding-left: 20px;
+    font-size: 1.1rem;
+}
+.list{
+    padding-left: .7143rem;
+}
+.list li{
+    width: 100%;
+    height: 5.0714rem;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+}
+.list li:nth-child(1)>span:first-child{
+    background-color: #e70502;
+    color: white;
+}
+.list li:nth-child(2)>span:first-child{
+    background-color: #fe720b;
+    color: white;
+}
+.list li:nth-child(3)>span:first-child{
+    background-color: #f7b215;
+    color: white;
+}
+.list li>span:first-child{
+    width: 1.6rem;
+    height: 1.35rem;
+    line-height: 1.35rem;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #999999;
+}
+.list li .title{
+    width: 19.5rem;
+    padding-left: .3571rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: #363636;
+}
+.list a>i{
+    display: inline-block;
+    width: 1.27143rem;
+    height: 1.5rem;
+    margin-left: 12px;
+    vertical-align: middle;
+    background: url(../images/download_icon_2.png) no-repeat;
+    background-size: 100%;
+}

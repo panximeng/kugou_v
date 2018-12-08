@@ -1,0 +1,34 @@
+
+#singer_list{
+    display: none;
+}
+.singer_list{
+    margin: 20px 15px;
+    border: 1px solid #e4e4e4;
+    border-bottom: none;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+}
+.singer_list li{
+    height: 2.7rem;
+    border-bottom: 1px solid #e4e4e4;
+}
+.singer_list li>a{
+    display: block;
+    width: 100%;
+    height: inherit;
+    margin-top: 1rem;
+    padding: 0px 20px;
+    font-size: 20px;
+    color: #343434;
+}
+.singer_list .icon{
+    display: inline-block;
+    width: .77143rem;
+    height: 1.4rem;
+    float: right;
+    margin-right: 40px;
+    background: url(../images/arrow_icon.png) no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+}

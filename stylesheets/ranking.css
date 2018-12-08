@@ -1,0 +1,34 @@
+#rank_list{
+    display: none;
+}
+.rank_list a{
+    border-bottom: 1px solid #e5e5e5;
+    display: block;
+    padding: 0.8rem 1.2rem 0.8rem 0rem;
+    margin-left: 0.8rem;
+}
+.rank_list img,.rank_list span,.rank_list i{
+    display: inline-block;
+    vertical-align: middle;
+}
+.rank_list img{
+    width: 6.57rem;
+    height: 6.57rem;
+    margin-right: 1.3rem;
+}
+.rank_list span{
+    height: 6.57rem;
+    line-height: 6.57rem;
+    color: #404040;
+    font-size: 1.3rem;
+    /* margin-right: 7.5rem; */
+    /* background: palegoldenrod; */
+    width: 14rem;
+}
+.rank_list i{
+    display: inline-block;
+    width: .77143rem;
+    height: 1.4rem;
+    background: url(../images/arrow_icon.png) no-repeat;
+    background-size: 100%;
+}
